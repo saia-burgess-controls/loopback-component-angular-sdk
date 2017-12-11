@@ -1,0 +1,19 @@
+{
+  "name": "loopback-component-sdk",
+  "version": "1.0.0",
+  "description": "Loopback angular SDK deliverd trought an API endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joinbox/loopback-component-sdk.git"
+  },
+  "author": "Lorenzo Kappeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joinbox/loopback-component-sdk/issues"
+  },
+  "homepage": "https://github.com/joinbox/loopback-component-sdk#readme"
+}
