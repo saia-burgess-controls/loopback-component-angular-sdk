@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-sdk",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Loopback angular SDK deliverd trought an API endpoint",
   "main": "index.js",
   "scripts": {

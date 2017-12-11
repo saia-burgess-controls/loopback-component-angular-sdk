@@ -17,5 +17,11 @@ Call the configured endpoint `http://localhost:10100/sdk?=api.example.com` and t
 
 ### Params
 
-* servicename: The name of the angular service default 'lbServices'
-* hostname: The API's host name
+- options: An Object with option for building the SDK (name: default value):
+  - ngModuleName: 'lbServices'
+  - apiUrl: req.headers.host
+  - includeCommonModules: true
+  - namespaceModels: false
+  - namespaceCommonModels: false
+  - namespaceDelimiter: '.'
+  - modelsToIgnore: []

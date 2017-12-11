@@ -4,21 +4,23 @@ const generator = require('loopback-sdk-angular');
 
 module.exports = function(app, options){
   options = _.defaults({}, options, { mountPath: '/sdk' });
-  const serviceNamePlaceholder = '<%= serviceName %>';
-  const hostPlaceholder = '<%= hostName %>';
-  const script = generator.services(app, serviceNamePlaceholder, hostPlaceholder);
-  const minifiedScript = compressor.minify(script);
-  const compileSdkCode = _.template(minifiedScript.code);
 
   app.get(options.mountPath, function(req, res, next){
-    const serviceName = req.query.servicename || 'lbServices';
-    const hostName = req.query.hostname;
-    const sdk = compileSdkCode({
-      serviceName,
-      hostName
-    });
+    const sdkDefaultOptions = {
+      ngModuleName: 'lbServices',
+      apiUrl: req.headers.host,
+      includeCommonModules: true,
+      namespaceModels: false,
+      namespaceCommonModels: false,
+      namespaceDelimiter: '.',
+      modelsToIgnore: [],
+    }
+    const requestOptions = req.query.options ? JSON.parse(req.query.options) : {};
+    const sdkOptions = _.defaults({}, requestOptions, sdkDefaultOptions);
+    const script = generator.services(app, sdkOptions);
+    const minifiedScript = compressor.minify(script);
     res.setHeader('Content-Type', 'application/javascript');
     res.status(200)
-      .send(sdk);
+      .send(minifiedScript.code);
   });
 };
