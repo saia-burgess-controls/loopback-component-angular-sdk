@@ -13,7 +13,7 @@ module.exports = function(app, options){
   app.get(options.mountPath, function(req, res, next){
     const sdkDefaultOptions = {
       ngModuleName: 'lbServices',
-      apiUrl: req.headers.host,
+      apiUrl: `${req.headers.host}${app.get('restApiRoot')}`,
       includeCommonModules: true,
       namespaceModels: false,
       namespaceCommonModels: false,

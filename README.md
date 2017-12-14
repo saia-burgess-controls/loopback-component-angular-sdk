@@ -19,7 +19,7 @@ Call the configured endpoint `http://localhost:10100/sdk?=api.example.com` and t
 
 - options: An Object with option for building the SDK (name: default value):
   - ngModuleName: 'lbServices'
-  - apiUrl: ${req.headers.host}/${app.get('restApiRoot')} // <request-host>/<api-root-path>
+  - apiUrl: ${req.headers.host}/${app.get('restApiRoot')} // request-host/api-root-path
   - includeCommonModules: true
   - namespaceModels: false
   - namespaceCommonModels: false
