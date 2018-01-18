@@ -5,11 +5,6 @@ const generator = require('loopback-sdk-angular');
 module.exports = function(app, options){
   options = _.defaults({}, options, { mountPath: '/sdk' });
 
-
-  console.log('app', app);
-  console.log('title', app.get('restApiRoot'));
-  console.log('title', app.get('host'));
-
   app.get(options.mountPath, function(req, res, next){
     const sdkDefaultOptions = {
       ngModuleName: 'lbServices',
