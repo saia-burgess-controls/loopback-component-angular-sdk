@@ -1,6 +1,6 @@
 {
-  "name": "loopback-component-sdk",
-  "version": "1.2.3",
+  "name": "loopback-component-angular-sdk",
+  "version": "2.0.0",
   "description": "Loopback angular SDK deliverd trought an API endpoint",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joinbox/loopback-component-sdk.git"
+    "url": "git+https://github.com/joinbox/loopback-component-angular-sdk.git"
   },
   "author": "Lorenzo Kappeler",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joinbox/loopback-component-sdk/issues"
+    "url": "https://github.com/joinbox/loopback-component-angular-sdk/issues"
   },
-  "homepage": "https://github.com/joinbox/loopback-component-sdk#readme",
+  "homepage": "https://github.com/joinbox/loopback-component-angular-sdk#readme",
   "dependencies": {
     "lodash": "^4.17.4",
-    "loopback-sdk-angular": "^3.2.1",
+    "loopback-sdk-angular": "^3.3.0",
     "uglify-js": "^3.2.2"
   }
 }

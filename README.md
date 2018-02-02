@@ -1,4 +1,4 @@
-# loopback-component-sdk
+# loopback-component-angular-sdk
 Loopback angualr sdk deliverd over the api
 
 ## Configuration
