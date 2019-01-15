@@ -4,7 +4,8 @@
   "description": "Loopback angular SDK delivered trough an API endpoint",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "node_modules/.bin/eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
   },
   "homepage": "https://github.com/joinbox/loopback-component-angular-sdk#readme",
   "dependencies": {
-    "lodash": "^4.17.4",
-    "loopback-sdk-angular": "joinbox/loopback-sdk-angular#master",
+    "loopback-sdk-angular": "^3.4.1",
     "uglify-js": "^3.2.2"
+  },
+  "devDependencies": {
+    "@joinbox/eslint-config-joinbox": "^1.0.8",
+    "eslint": "^5.12.0"
   }
 }
