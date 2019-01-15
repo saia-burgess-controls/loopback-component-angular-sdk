@@ -1,10 +1,11 @@
 {
   "name": "@joinbox/loopback-component-angular-sdk",
-  "version": "2.0.0",
-  "description": "Loopback angular SDK deliverd trought an API endpoint",
+  "version": "2.0.1",
+  "description": "Loopback angular SDK delivered trough an API endpoint",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "node_modules/.bin/eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
   },
   "homepage": "https://github.com/joinbox/loopback-component-angular-sdk#readme",
   "dependencies": {
-    "lodash": "^4.17.4",
-    "loopback-sdk-angular": "^3.3.0",
+    "loopback-sdk-angular": "^3.4.1",
     "uglify-js": "^3.2.2"
+  },
+  "devDependencies": {
+    "@joinbox/eslint-config-joinbox": "^1.0.8",
+    "eslint": "^4.9.0"
   }
 }
