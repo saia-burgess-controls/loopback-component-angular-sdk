@@ -17,7 +17,7 @@ module.exports = function(app, { mountPath = '/sdk' }) {
 
         try {
             const requestOptions = req.query.options ? JSON.parse(req.query.options) : {};
-            const sdkOptions = Object.assign({}, requestOptions, sdkDefaultOptions);
+            const sdkOptions = Object.assign({}, sdkDefaultOptions, requestOptions);
             const script = generator.services(app, sdkOptions);
             const minifiedScript = compressor.minify(script);
 
