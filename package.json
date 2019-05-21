@@ -1,10 +1,14 @@
 {
   "name": "@joinbox/loopback-component-angular-sdk",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Loopback angular SDK delivered trough an API endpoint",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:watch": "WATCH_TESTS=\"--watch\" npm run test",
+    "test:base": "mocha $NODE_DEBUG_OPTION $WATCH_TESTS --recursive --check-leaks --globals moduleName --globals helpers --full-trace --exit",
+    "test:unit": "npm run test:base ./test/support/setup/unit.js ./test/unit",
+    "test:integration": "npm run test:base ./test/support/setup/integration.js ./test/integration",
+    "test": "npm run test:base ./test/support/setup/integration.js ./test/integration ./test/unit",
     "lint": "node_modules/.bin/eslint index.js"
   },
   "repository": {
@@ -19,10 +23,14 @@
   "homepage": "https://github.com/joinbox/loopback-component-angular-sdk#readme",
   "dependencies": {
     "loopback-sdk-angular": "^3.4.1",
+    "lru-cache": "^5.1.1",
     "uglify-js": "^3.2.2"
   },
   "devDependencies": {
     "@joinbox/eslint-config-joinbox": "^1.0.8",
-    "eslint": "^4.9.0"
+    "@joinbox/loopback-microservice": "^1.2.1",
+    "chai": "^4.2.0",
+    "eslint": "^4.9.0",
+    "mocha": "^6.1.4"
   }
 }

@@ -1,31 +1,23 @@
-const compressor = require('uglify-js');
-const generator = require('loopback-sdk-angular');
+const SKDBuilder = require('./src/SDKBuilder.js');
 
-module.exports = function(app, { mountPath = '/sdk' }) {
+module.exports = function(app, { mountPath = '/sdk', cacheOptions }) {
+    const builder = new SKDBuilder({ cacheOptions });
 
     app.get(mountPath, (req, res, next) => {
-
-        const sdkDefaultOptions = {
-            ngModuleName: 'lbServices',
-            apiUrl: `${req.protocol}://${req.headers.host}${app.get('restApiRoot')}`,
-            includeCommonModules: true,
-            namespaceModels: false,
-            namespaceCommonModels: false,
-            namespaceDelimiter: '.',
-            modelsToIgnore: [],
-        };
-
         try {
             const requestOptions = req.query.options ? JSON.parse(req.query.options) : {};
-            const sdkOptions = Object.assign({}, sdkDefaultOptions, requestOptions);
-            const script = generator.services(app, sdkOptions);
-            const minifiedScript = compressor.minify(script);
+            const result = builder.buildSKD({
+                SDKOptions: requestOptions,
+                protocol: req.protocol,
+                host: req.headers.host,
+                app,
+            });
 
             res.setHeader('Content-Type', 'application/javascript');
-            res.status(200).send(minifiedScript.code);
+            res.setHeader('X-Loopback-SDK-Cache-Hit', result.cached);
+            res.status(200).send(result.code);
         } catch (error) {
             next(error);
         }
-
     });
 };

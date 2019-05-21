@@ -1,0 +1,25 @@
+{
+    "name": "Dummy",
+    "plural": "Dummies",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "strict": true,
+    "http": {
+        "path": "Dummy"
+    },
+    "options": {
+        "validateUpsert": true
+    },
+    "mixins": {
+    },
+    "properties": {
+        "test": {
+            "type": "String"
+        }
+    },
+    "validations": [],
+    "relations": {
+    },
+    "acls": [],
+    "methods": {}
+}
