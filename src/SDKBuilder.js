@@ -33,14 +33,18 @@ module.exports = class SKDBuilder {
             apiUrl: `${protocol}://${host}${app.get('restApiRoot')}`,
         }, this.defaultSDKOptions, SDKOptions);
 
-        const cacheKey = JSON.stringify(options);
+        const sortedOptions = {};
+        Object.keys(options).sort().forEach((key) => {
+            sortedOptions[key] = options[key];
+        });
+
+        const cacheKey = JSON.stringify(sortedOptions);
         if (this.cache.has(cacheKey)) {
             return {
                 cached: true,
                 code: this.cache.get(cacheKey),
             };
         }
-
 
         const script = generator.services(app, options);
         const minifiedScript = compressor.minify(script);
