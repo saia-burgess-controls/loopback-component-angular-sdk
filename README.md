@@ -6,9 +6,10 @@ Loopback angualr sdk deliverd over the api
 Add the configuration in your `component-config.json`
 
 ```
-"loopback-component-sdk": {
-  "mountPath": "/sdk"
-},
+"@joinbox/loopback-component-angular-sdk": {
+    "mountPath": "/sdk"
+    "cacheOptions": {}
+}
 ```
 
 ## Usage
@@ -25,3 +26,8 @@ Call the configured endpoint `http://localhost:10100/sdk?=api.example.com` and t
   - namespaceCommonModels: false
   - namespaceDelimiter: '.'
   - modelsToIgnore: []
+
+
+### Cache options
+
+See [lru-cache docs](https://github.com/isaacs/node-lru-cache#readme)
