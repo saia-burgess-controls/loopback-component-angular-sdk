@@ -1,5 +1,5 @@
 {
-  "name": "@joinbox/loopback-component-angular-sdk",
+  "name": "@maugli-sbc/loopback-component-angular-sdk",
   "version": "2.1.0",
   "description": "Loopback angular SDK delivered trough an API endpoint",
   "main": "index.js",
